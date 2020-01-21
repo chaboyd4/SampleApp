@@ -20,6 +20,6 @@ from sample_app import views # STEP 1 URL
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home',views.home, name= 'home'), # STEP 1) URL linking the three things together, views.home is the function
-    path('^$', views.home, name='home') #don't need to run server again, so
+    path('', views.home, name='home') #don't need to run server again, so
 ]
 # 3 STEPS: 1) URL, 2) Function, 3) Template
