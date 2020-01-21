@@ -36,7 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions', #takes care of sessions, if you go back to website it assigns a session ID, and each time you return it remembers you
     'django.contrib.messages', #won't worry about
-    'Whitenoise.runserver_nostatic',
+    'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles', #files like images, data, videos --> files not changing, will need to do some additional work if want to add our own files
     'sample_app.apps.SampleAppConfig', #our app, which is automatically added by Django
 ] # our app is sample_app.apps.SampleAppConfig and Django automatically adds
