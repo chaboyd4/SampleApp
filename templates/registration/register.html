@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>Create an account</h3>
+<h2>Register</h2>
+<form method="post">
+    {% csrf_token %}
+    First name: <input name="fname" type="text" required><br>
+    Last name: <input name="lname" type="text" required><br>
+    {{ form.as_p }}
+    Email: <input name="email" type="email"><br>
+    <button type="submit">Register</button>
+</form>
+</body>
+</html>

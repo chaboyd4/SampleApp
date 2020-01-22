@@ -16,10 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from sample_app import views # STEP 1 URL
+from django.contrib.auth.views import LoginView # brings in Django's authentication app! will verify username/password for us
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('home',views.home, name= 'home'), # STEP 1) URL linking the three things together, views.home is the function
-    path('', views.home, name='home') #don't need to run server again, so
+    path('', views.home, name='home'), #don't need to run server again, so
+    path('login',LoginView.as_view(),name='login'),
+    # path('login', views.login, name='login'),
+    path('register', views.new_user_register, name='user_registration'),
+    path('guest', views.guest, name='guest'),
+    path('loggedIn', views.loggedIn, name="loggedIn"),
+    path('guestdata',views.process_guest,name='guest-fun'),
 ]
 # 3 STEPS: 1) URL, 2) Function, 3) Template

@@ -5,9 +5,31 @@
     <title>Title</title>
 </head>
 <body>
-This is my wonderful app! Today is {{ date }} <p>
-    {{ help }}<br>
-    {{ yelp }}
+{#This is my wonderful app! Today is {{ date }} <p>#}
+{#{%  if banjo %}#}
+{#play music#}
+{#    {%  else %}#}
+{#        Don't play music#}
+{#{%  endif %}#}
+{#if banjo#}
+{#play music#}
+{#else#}
+{#don't play#}
+<form action="" method="get">
+      Dear user, what is your name? <input type="text" name="name"><br>
+        And your city? <input type="text" name="city"><br>
+        Date of birth <input type="date" name="dob"><br>
+        <input type="submit" value="Click me!" name="bq1">
+</form>
+<p></p>
+    {%  for p in persons %}
+        Name: {{ p.0 }} City: {{ p.1 }}<br>
+    {% endfor %}
+    <a href="{% url 'login' %}">login</a><br>
+    <a href="{% url 'user_registration' %}">register</a><br>
+    <a href="{% url 'guest-fun' %}">guest</a>
+{#    {{ help }}<br>#}
+{#    {{ yelp }}#}
 </p>
 </body>
 </html>

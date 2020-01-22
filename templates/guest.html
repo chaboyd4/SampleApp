@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Hi Guest User!</h2>
+<form action="{% url 'guest-fun' %}" method="get">
+Your name <input name="name" type="text"><br>
+Date of birth <input name="dob" type="date"><br>
+Your email <input name="email" type="email"><br>
+<input type="submit" value="Click me!" name="submit">
+    <input type="submit" value="Cancel" name="cancel">
+</form>
+</body>
+</html>
