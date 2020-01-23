@@ -33,6 +33,8 @@ def guest(request):
 
 def loggedIn(request):
     context = dict()
+    #If user is an admin user, then
+    return render(request,"admin.html",context=context)
     return render(request, "loggedIn.html", context=context)
 
 def process_guest(request):
