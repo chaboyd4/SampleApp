@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+    Hello {{ user }}. This is the admin operations page!<p>
+    {% if message %}
+        {{ message }}
+    {% endif %}
+</p>
+    <p>
+    <form action="{% url 'do_admin_stuff' %}" method="get">
+        Enter a file name for bulk input <input type="file" name="file"><br>
+        <input type="submit" name="packages" value="Bulk updatepackages"><br>
+        <input type="submit" name="users" value="Bulk update users"><br>
+        File for bulk package update
+        <a href="{% url 'logout' %}">Logout</a>
+    </form>
+    </p>
+{% endblock %}

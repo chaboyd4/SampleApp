@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import HttpResponseRedirect
 from django.urls import reverse
-from sample_app.models import AppUser
+from sample_app.models import AppUser, Packages, Bids
 
 # Create your views here.
 
@@ -33,6 +33,9 @@ def guest(request):
 
 def loggedIn(request):
     context = dict()
+    user = request.user
+    if user.is_superuser:
+        return render(request,"admin_ops.html",context=context)
     #If user is an admin user, then
     return render(request,"admin.html",context=context)
     return render(request, "loggedIn.html", context=context)
@@ -95,3 +98,35 @@ def resort_finder(request):
     resorts = get_resorts()
     context['data'] = resorts
     return render(request,"resorts.html",context=context)
+
+
+def do_admin_stuff(request):
+    context = dict()
+    try:
+        request.GET['packages']
+        file = request.GET['file']
+        file = "static/sample_app/" + file
+        with open(file, 'r') as f:
+            for line in f:
+                line = line.strip().split(',')
+                pid = line[0]
+                try:
+                    p = Packages.objects.get(packageId=pid)
+                except:
+                    p = Packages(packageId=pid)
+                p.description = line[1]
+                p.location = line[2]
+                p.latitude = float(line[3])
+                p.longitude = float(line[4])
+                p.min_bid = int(line[5])
+                p.save()
+            context['message'] = "Done updating packages in bulk!"
+            return render(request, 'admin_ops.html', context=context)
+    except:
+        pass
+    try:
+        request.GET['users']
+        context['message'] = "Bulk updated users!"
+    except:
+        pass
+    return render(request,"admin_ops.html",context=context)

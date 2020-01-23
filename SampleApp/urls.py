@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from sample_app import views # STEP 1 URL
 from django.contrib.auth.views import LoginView # brings in Django's authentication app! will verify username/password for us
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +30,7 @@ urlpatterns = [
     path('loggedIn', views.loggedIn, name="loggedIn"),
     path('guestdata',views.process_guest,name='guest-fun'),
     path('resort-offers',views.resort_finder,name='resorts'),
+    path('do_admin_stuff',views.do_admin_stuff,name='do_admin_stuff'),
+    path("logout/", LogoutView.as_view(), name="logout"),
 ]
 # 3 STEPS: 1) URL, 2) Function, 3) Template
