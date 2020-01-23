@@ -37,7 +37,7 @@ def loggedIn(request):
     if user.is_superuser:
         return render(request,"admin_ops.html",context=context)
     #If user is an admin user, then
-    return render(request,"admin.html",context=context)
+    # return render(request,"admin_ops.html",context=context)
     return render(request, "loggedIn.html", context=context)
 
 def process_guest(request):
