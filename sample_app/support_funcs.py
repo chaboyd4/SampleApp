@@ -1,6 +1,6 @@
-import requests
 
 def get_resorts():
+    import requests
     from bs4 import BeautifulSoup
     url = "https://www.cheapcaribbean.com/deals/vacation-packages.html"
     response = requests.get(url)
