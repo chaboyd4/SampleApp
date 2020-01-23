@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
     'django.contrib.staticfiles', #files like images, data, videos --> files not changing, will need to do some additional work if want to add our own files
     'sample_app.apps.SampleAppConfig', #our app, which is automatically added by Django
+    'leaflet',
 ] # our app is sample_app.apps.SampleAppConfig and Django automatically adds
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

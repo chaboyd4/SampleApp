@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Packages available for purchase!</h2>
+
+<table>
+    <tr>
+        <th>Location</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Rating</th>
+    </tr>
+    {%  for d in data %}
+        <tr>
+            <td>{{ d.0 }}</td>
+            <td>{{ d.2 }}</td>
+            <td>{{ d.3 }}</td>
+            <td>{{ d.4 }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}

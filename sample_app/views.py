@@ -85,3 +85,11 @@ def new_user_register(request):
         form = UserCreationForm()
         context['form'] = form
         return render(request,"registration/register.html", context)
+
+
+def resort_finder(request):
+    from sample_app.support_funcs import get_resorts
+    context = dict()
+    resorts = get_resorts()
+    context['data'] = resorts
+    return render(request,"resorts.html",context=context)

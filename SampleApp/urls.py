@@ -28,5 +28,6 @@ urlpatterns = [
     path('guest', views.guest, name='guest'),
     path('loggedIn', views.loggedIn, name="loggedIn"),
     path('guestdata',views.process_guest,name='guest-fun'),
+    path('resort-offers',views.resort_finder,name='resorts'),
 ]
 # 3 STEPS: 1) URL, 2) Function, 3) Template
